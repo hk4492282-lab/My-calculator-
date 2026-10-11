@@ -1,0 +1,53 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    char op;
+    double num1, num2;
+    char choice;
+
+    do {
+        cout << "\n========== ADVANCE CALCULATOR ==========\n";
+        cout << "Operators: +  -  *  /  %  ^ (power)  s (sqrt)\n";
+        cout << "Operator enter karein: ";
+        cin >> op;
+
+        if(op == 's' || op == 'S') {
+            cout << "Number enter karein: ";
+            cin >> num1;
+            cout << "Result: " << sqrt(num1) << endl;
+        }
+        else {
+            cout << "Pehla number: ";
+            cin >> num1;
+            cout << "Dosra number: ";
+            cin >> num2;
+
+            switch(op) {
+                case '+': cout << "Result: " << num1 + num2 << endl; break;
+                case '-': cout << "Result: " << num1 - num2 << endl; break;
+                case '*': cout << "Result: " << num1 * num2 << endl; break;
+                case '/': 
+                    if(num2 != 0) cout << "Result: " << num1 / num2 << endl;
+                    else cout << "Error! Zero se divide nahi hota!" << endl;
+                    break;
+                case '%':
+                    cout << "Result: " << (int)num1 % (int)num2 << endl;
+                    break;
+                case '^':
+                    cout << "Result: " << pow(num1, num2) << endl;
+                    break;
+                default:
+                    cout << "Ghalat operator!" << endl;
+            }
+        }
+
+        cout << "\nKya dubara calculation karni hai? (y/n): ";
+        cin >> choice;
+
+    } while(choice == 'y' || choice == 'Y');
+
+    cout << "Shukriya! Calculator band ho raha hai.";
+    return 0;
+}
